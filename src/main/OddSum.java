@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class OddSum {
 
     public static void main(String[] args) {
+
         run(args, false);
     }
 
@@ -10,14 +11,20 @@ public class OddSum {
 
         ArrayList<Integer> listInt = new ArrayList<>();
         int res;
-        if (!test) {
+        
+          if (!test) {
             System.out.println("Elements' list :");
             for (String v : args)
                 System.out.print(" " + v);
             System.out.println();
         }
-        for (int i = 0; i < args.length; i++) {
-            listInt.add(Integer.parseInt(args[i]));
+        try {
+          for (int i = 0; i < args.length; i++) {
+              listInt.add(Integer.parseInt(args[i]));
+          }
+        } catch (NumberFormatException e) {
+          System.err.println("This is a NumberFormatException");
+          return -1;
         }
 
         res = sum(listInt);
